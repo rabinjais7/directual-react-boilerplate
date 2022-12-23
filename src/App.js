@@ -62,30 +62,25 @@ export default function App() {
             <LoginPage />
           </Route>
           <Route exact path="/">
-            <Page1 />
+            watched
           </Route>
-          <Route exact path="/page2">
-            <Page2 />
+          <Route exact path="/towatch">
+            Movies to Watch
           </Route>
-          <Route exact path="/page3">
-            <Page3 />
+          <Route exact path="/add">
+            Recommend me movie
           </Route>
-
-          {/* Pages for any authorised user */}
-          <PrivateRoute path="/private">
+          {/* <PrivateRoute path="/private">
             <PrivatePage />
           </PrivateRoute>
           <PrivateRoute path="/websocket">
             <Websocket />
           </PrivateRoute>
 
-          {/* Pages for users, who have role == 'admin'. You can apply any other value here */}
+  
           <PrivateRoute path="/admin" hasRole={'admin'}>
             <AdminPage />
-          </PrivateRoute>
-
-          {/* This is for pages like your.app/books/the-bible, wthere 'the-bible' in an Object ID */}
-          {/* <Route exact path="/table/:id" component={Child}/> */}
+          </PrivateRoute> */}
         </Switch>
       </Router>
     </ProvideAuth>
