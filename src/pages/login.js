@@ -1,4 +1,4 @@
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation, Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../auth'
 
@@ -46,7 +46,7 @@ export default function LoginPage () {
           setPassword(e.target.value)
         }}/>
         {error && <div className="error">{error}</div>}
-        {!loading ? <button>Log in</button> : <Loader text='Logging in...'/>}
+        {!loading ? <div> <button>Log in</button> <Link to ="/register">registration</Link> </div> : <Loader text='Logging in...'/>}
       </form>
     </div>
   )
