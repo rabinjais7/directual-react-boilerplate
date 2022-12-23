@@ -13,13 +13,8 @@ import {
 import { MainMenu } from './components/menu/menu'
 import { ProvideAuth, useAuth, authContext } from './auth'
 
-import Page1 from './pages/Page1'
-import Page2 from './pages/Page2'
-import Page3 from './pages/Page3'
-import PrivatePage from './pages/PrivatePage'
-import Websocket from './pages/Websocket'
-import AdminPage from './pages/AdminPage'
 import LoginPage from './pages/login'
+import MyList from './pages/myList';
 
 function PrivateRoute({ children, hasRole, ...rest }) {
   const auth = useAuth();
@@ -62,7 +57,7 @@ export default function App() {
             <LoginPage />
           </Route>
           <Route exact path="/">
-            watched
+            <MyList />
           </Route>
           <Route exact path="/towatch">
             Movies to Watch
