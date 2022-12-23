@@ -35,7 +35,8 @@ export function MainMenu() {
         <NavLink exact to="/admin">Admin Page</NavLink>
       </li>}
       <li className="rihgt-top">
-        <Link to ="/register"><button>Register</button></Link>
+        {!authContext.isAutorised() &&
+        <Link to ="/register"><button>Register</button></Link> }
         <LogInLogOutButton />
       </li>
     </ul>

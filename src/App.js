@@ -15,6 +15,9 @@ import { ProvideAuth, useAuth, authContext } from './auth'
 
 import LoginPage from './pages/login'
 import MyList from './pages/myList';
+import ToWatch from './pages/toWatch';
+import AddMovies from './pages/add';
+import Register from './pages/register';
 
 function PrivateRoute({ children, hasRole, ...rest }) {
   const auth = useAuth();
@@ -60,10 +63,13 @@ export default function App() {
             <MyList />
           </Route>
           <Route exact path="/towatch">
-            Movies to Watch
+            <ToWatch />
           </Route>
-          <Route exact path="/add">
-            Recommend me movie
+          <PrivateRoute exact path="/add">
+            <AddMovies />
+          </PrivateRoute>
+          <Route exact path="/register">
+            <Register />
           </Route>
           {/* <PrivateRoute path="/private">
             <PrivatePage />
