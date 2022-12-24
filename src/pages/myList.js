@@ -11,8 +11,8 @@ const api = new Directual({ apiHost: '/' })
 export default function MyList() {
 
   // API-endpoint details
-  const dataStructure = '' // todo: write here sysname of your data structure
-  const endpoint = '' // todo: write here Method name of your API-endpoint
+  const dataStructure = 'movies' // todo: write here sysname of your data structure
+  const endpoint = 'getMovieWatched' // todo: write here Method name of your API-endpoint
 
   // connect authentication context
   const auth = useAuth();

@@ -11,8 +11,8 @@ const api = new Directual({ apiHost: '/' })
 export default function AddMovies() {
 
   // API-endpoint details
-  const dataStructure = '' // todo: write here sysname of your data structure
-  const endpoint = '' // todo: write here Method name of your API-endpoint
+  const dataStructure = 'movie_recommendations' // todo: write here sysname of your data structure
+  const endpoint = 'postMovie' // todo: write here Method name of your API-endpoint
 
   // Connect authentication context
   const auth = useAuth();
@@ -23,7 +23,7 @@ export default function AddMovies() {
   const [badRequest, setBadRequest] = useState(); // API error message
   const [loading, setLoading] = useState(false); // Loader
   const [showForm, setShowForm] = useState(true); // Show/hide the form
-  const [formPayload, setFormPayload] = useState({}); // Data to send. Here we can add userID: auth.user by default
+  const [formPayload, setFormPayload] = useState({user_id:auth.user}); // Data to send. Here we can add userID: auth.user by default
 
   // Reset the form
   const resetForm = () => {
@@ -31,7 +31,7 @@ export default function AddMovies() {
     setStatus()
     setBadRequest()
     setShowForm(true)
-    setFormPayload({}) // Don't forget to include userID: auth.user, if needed
+    setFormPayload({user_id:auth.user}) // Don't forget to include userID: auth.user, if needed
   }
 
   // POST-request
@@ -66,9 +66,17 @@ export default function AddMovies() {
       {loading && <Loader />}
       {showForm &&
         <form onSubmit={postData}>
-          <input type="text" onChange={(e) => {
+          <input type="text" placeholder='Movie Title' onChange={(e) => {
             // insert here your FIELD_SYSNAME
-            setFormPayload({ ...formPayload, 'FIELD_SYSNAME': e.target.value })
+            setFormPayload({ ...formPayload, 'title': e.target.value })
+          }} />
+          <input type="text" placeholder='Year' onChange={(e) => {
+            // insert here your FIELD_SYSNAME
+            setFormPayload({ ...formPayload, 'year': e.target.value })
+          }} />
+          <input type="text" placeholder='Why do you recommend?' onChange={(e) => {
+            // insert here your FIELD_SYSNAME
+            setFormPayload({ ...formPayload, 'description': e.target.value })
           }} />
           <button type="submit">Submit</button>
         </form>
